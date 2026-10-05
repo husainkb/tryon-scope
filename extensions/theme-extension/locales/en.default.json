@@ -1,0 +1,28 @@
+{
+  "ratings": {
+    "stars": {
+      "label": "Ratings"
+    },
+    "home": {
+      "recommendationText": "Recommended Product!"
+    }
+  },
+  "tryon": {
+    "modal": {
+      "title_html": "Try it on",
+      "upload_tab_html": "Upload a photo",
+      "camera_tab_html": "Take a selfie",
+      "upload_cta_html": "Upload photo",
+      "upload_hint_html": "Your photo stays in your browser and is never uploaded.",
+      "camera_instruction_html": "Center your face in the circle and look straight ahead",
+      "capture_cta_html": "Capture",
+      "retake_cta_html": "Retake",
+      "no_face_html": "No face found. Try a clearer, front-facing photo.",
+      "overlay_error_html": "Couldn't load this product's try-on image. Please try again.",
+      "loading_html": "Preparing this product for try-on…",
+      "disabled_html": "Try-on isn't available for this product yet.",
+      "save_cta_html": "Save photo",
+      "close_html": "Close"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{%- if block.settings.product -%}
+<div
+  class="tryon-launcher"
+  data-tryon-root
+  data-shop="{{ shop.permanent_domain }}"
+  data-proxy-base="/apps/tryon"
+  data-label="{{ block.settings.button_label | escape }}"
+>
+  <script type="application/json" data-tryon-product>
+    {%- render 'tryon-data', product: block.settings.product -%}
+  </script>
+  <script type="application/json" data-tryon-strings>
+    {
+      "title": {{ 'tryon.modal.title_html' | t | json }},
+      "uploadTab": {{ 'tryon.modal.upload_tab_html' | t | json }},
+      "cameraTab": {{ 'tryon.modal.camera_tab_html' | t | json }},
+      "uploadCta": {{ 'tryon.modal.upload_cta_html' | t | json }},
+      "uploadHint": {{ 'tryon.modal.upload_hint_html' | t | json }},
+      "cameraInstruction": {{ 'tryon.modal.camera_instruction_html' | t | json }},
+      "captureCta": {{ 'tryon.modal.capture_cta_html' | t | json }},
+      "retakeCta": {{ 'tryon.modal.retake_cta_html' | t | json }},
+      "noFace": {{ 'tryon.modal.no_face_html' | t | json }},
+      "overlayError": {{ 'tryon.modal.overlay_error_html' | t | json }},
+      "loading": {{ 'tryon.modal.loading_html' | t | json }},
+      "disabled": {{ 'tryon.modal.disabled_html' | t | json }},
+      "saveCta": {{ 'tryon.modal.save_cta_html' | t | json }},
+      "close": {{ 'tryon.modal.close_html' | t | json }}
+    }
+  </script>
+  <button type="button" class="tryon-launcher__fallback-button" disabled>
+    {{ block.settings.button_label }}
+  </button>
+</div>
+
+<script src="{{ 'tryon-widget.js' | asset_url }}" type="module"></script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Try On Button",
+  "target": "section",
+  "settings": [
+    { "type": "product", "id": "product", "label": "Product", "autofill": true },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Try it on"
+    }
+  ]
+}
+{% endschema %}

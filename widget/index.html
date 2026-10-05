@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tryon widget dev preview</title>
+  </head>
+  <body>
+    <!--
+      Local preview only — mirrors the markup the theme app extension's
+      tryon_button.liquid block renders. `/apps/tryon/product/...` calls
+      will 404 here since there's no Shopify app proxy in standalone dev;
+      run `shopify app dev` from the repo root for a full end-to-end test.
+    -->
+    <div
+      data-tryon-root
+      data-shop="dev-store.myshopify.com"
+      data-proxy-base="/apps/tryon"
+      data-label="Try it on"
+    >
+      <script type="application/json" data-tryon-product>
+        { "productId": "gid://shopify/Product/0", "handle": "demo", "title": "Demo Frame", "variants": [] }
+      </script>
+      <script type="application/json" data-tryon-strings>
+        {
+          "title": "Try it on",
+          "uploadTab": "Upload a photo",
+          "cameraTab": "Take a selfie",
+          "uploadCta": "Upload photo",
+          "uploadHint": "Your photo stays in your browser and is never uploaded.",
+          "cameraInstruction": "Center your face in the circle and look straight ahead",
+          "captureCta": "Capture",
+          "retakeCta": "Retake",
+          "noFace": "No face found. Try a clearer, front-facing photo.",
+          "loading": "Preparing this product for try-on…",
+          "disabled": "Try-on isn't available for this product yet.",
+          "saveCta": "Save photo",
+          "close": "Close"
+        }
+      </script>
+    </div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

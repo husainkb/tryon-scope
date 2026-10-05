@@ -1,0 +1,48 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "bc463abdf6ee2a289aa3f01462186071"
+name = "tryon"
+application_url = "https://example.com"
+embedded = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products"
+
+[app_proxy]
+url = "https://example.com/apps/proxy"
+prefix = "apps"
+subpath = "tryon"
+
+[product.metafields.tryon.lens_width_mm]
+type = "number_decimal"
+name = "Try-On Lens Width (mm)"
+description = "Lens width used to scale the virtual try-on overlay for this product"
+
+  [product.metafields.tryon.lens_width_mm.access]
+  admin = "merchant_read_write"
+
+[product.metafields.tryon.bridge_mm]
+type = "number_decimal"
+name = "Try-On Bridge Width (mm)"
+description = "Bridge width used to scale the virtual try-on overlay for this product"
+
+  [product.metafields.tryon.bridge_mm.access]
+  admin = "merchant_read_write"
+
+[webhooks]
+api_version = "2027-01"
+
+  [[webhooks.subscriptions]]
+  uri = "/webhooks/app/uninstalled"
+  topics = [ "app/uninstalled" ]
+
+  [[webhooks.subscriptions]]
+  uri = "/webhooks/app/scopes_update"
+  topics = [ "app/scopes_update" ]
+
+[auth]
+redirect_urls = [ "https://example.com/api/auth" ]
+
+[build]
+automatically_update_urls_on_dev = true
